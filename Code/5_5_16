@@ -1,0 +1,33 @@
+# find wehre you are
+pwd
+
+# help
+man
+_--help
+
+# sort fasta file (contigs/length/read count)
+grep "^>" ~/Desktop/bins/NZ1_001_reassemble_contig.fasta
+
+# genentic content
+ grep -v "^>" ~/Desktop/bins/NZ1_001_reassemble_contig.fasta
+ 
+ # give number
+ grep -c "^>" ~/Desktop/bins/NZ1_001_reassemble_contig.fasta
+
+#gives contigs length reads
+grep "^>" ~/Desktop/bins/NZ1_001_reassemble_contig.fasta
+
+# gives front
+head NZ1_001_reassemble_contig.fasta.prot.fasta
+
+# starts at co 9
+grep "^>" NZ1_001_reassemble_contig.fasta.prot.fasta | awk '{print $9}'
+
+# gives a new sapcing ; and gets collom 2
+grep "^>" NZ1_001_reassemble_contig.fasta.prot.fasta | awk '{print $9}' | awk 'BEGIN{FS=";"}{print $2}'
+
+# search this file for things not Sulfurihydro
+grep -v "Sulfurihydro" ~/Downloads/NZ1_001_reassemble_contig.fasta.blastp.short_blast.csv 
+
+# saves that output
+> NZ1_001_reassemble_NO_Sulfurihydro_hits.csv
